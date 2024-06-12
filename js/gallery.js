@@ -64,6 +64,8 @@ const images = [
     },
   ];
 
+// ДОДАВАННЯ ГАЛЕРЕї
+
   const gallery = document.querySelector('.gallery')
 
   function newGallery (arr) {
@@ -84,4 +86,19 @@ const images = [
 
   gallery.insertAdjacentHTML("afterbegin", newGallery(images));
 
-  console.log(gallery)
+ console.log(gallery)
+
+
+//ДОДАВАННЯ ПОДІЇ
+
+gallery.addEventListener('click', handlerGetProduct)
+
+function handlerGetProduct(evt) {
+    if (evt.target.classList.contains('gallery-image')) {
+    return evt.target.dataset.sourse;
+//     if (evt.currentTarget === evt.target) {
+//       return;
+//     }
+// const parent = evt.target.closest('.gallery')
+    }
+}
