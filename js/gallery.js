@@ -67,9 +67,9 @@ const images = [
   const gallery = document.querySelector('.gallery')
 
   function newGallery (arr) {
-    arr.map(({preview, original, description}) => {
+    return arr.map(({preview, original, description}) => 
         `<li class="gallery-item">
-  <a class="gallery-link" href="large-image.jpg">
+  <a class="gallery-link" href="${original}">
     <img
       class="gallery-image"
       src="${preview}"
@@ -78,8 +78,10 @@ const images = [
     />
   </a>
 </li>
-    `})
+    `)
+    .join('');
   }
 
   gallery.insertAdjacentHTML("afterbegin", newGallery(images));
+
   console.log(gallery)
