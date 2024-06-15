@@ -94,11 +94,25 @@ const images = [
 gallery.addEventListener('click', handlerGetProduct)
 
 function handlerGetProduct(evt) {
-    if (evt.target.classList.contains('gallery-image')) {
-    return evt.target.dataset.sourse;
-//     if (evt.currentTarget === evt.target) {
-//       return;
-//     }
-// const parent = evt.target.closest('.gallery')
+    evt.preventDefault();
+if (evt.currentTarget === evt.target) {
+      return;
     }
-}
+const parent = evt.target.closest(".gallery-image")
+
+const originalCurrent = parent.dataset.source;
+
+const currentImage = images.find(({original}) => original === originalCurrent)
+
+
+const instance = basicLightbox.create(`
+<div class="modal">
+    <img src="${currentImage.original}" alt="${currentImage.description}" />
+</div>
+`);
+
+instance.show()
+
+
+    }
+
